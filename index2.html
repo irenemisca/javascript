@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="ejercicio7_4.js"></script> -->
+    <!-- <script src="ejercicio9_2.js"></script> -->
+    <!-- <script src="clase8.js"></script> -->
+    <!-- <script src="covid.js"></script> -->
+</head>
+<body>
+
+    <h1>Título</h1>
+    <p>Hola mundo!</p>
+    <p id="contenido">Hola</p>
+
+    <button id="boton">Pulsar</button>
+
+    <script>
+        
+        const contenidoP = document.getElementById('contenido');
+        console.log(contenidoP.innerText);
+
+        const boton = document.getElementById('boton');
+        boton.addEventListener('click', (event) => {
+            console.log('Se ha pulsado el botón');
+        })
+
+
+        setTimeout(() => {
+            // contenidoP.innerText = '<h2>Un h2</h2>';
+            // contenidoP.innerHTML = '<h2>Un h2</h2>';
+        }, 3000);
+
+
+    </script>
+
+</body>
+</html>

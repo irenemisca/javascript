@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- botón-->
+    <button onclick="getLocation()">Obtener geolocalización</button>
+
+    <p id="geo">Hola a todos</p>
+
+    <script>
+        const elementoP = document.getElementById('geo');
+        elementoP.innerHTML = 'Hola a todos';
+
+        const mostrarPosicion = (position) => {
+            x.innerHTML = `Latitud: ${position.coords.latitude}'<br>Longitud: ${position.coords.longitude}`;
+            console.log(position);
+            // console.log(`${position.coords.latitude}, ${position.coords.longitude}`);
+        }
+
+        const mostrarError = error => {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    x.innerHTML = 'El usuario ha denegado la petición de geolocalización';
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    x.innerHTML = 'Información de la ubicación no disponible';
+                    break;
+                case error.TIMEOUT:
+                    x.innerHTML = 'El tiempo previsto para obtener la geolocalización ha expirado';
+                    break;
+                case error.UNKNOWN_ERROR:
+                    x.innerHTML = 'Error desconocido';
+                    break;
+            }
+        }
+
+        const getLocation = () => {
+
+            // comprueba que la geolocalización es soportada
+            if (navigator.geolocation) {
+
+                // el primer parámetro es una función invocada si es posible acceder correctamente a la geolocalización, mientras que el segundo es una función invocada en caso de error
+                navigator.geolocation.getCurrentPosition(mostrarPosicion, mostrarError);
+            } else {
+                x.innerHTML = 'Geolocalización no soportada';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
